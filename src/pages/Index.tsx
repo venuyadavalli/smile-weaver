@@ -3,10 +3,11 @@ import { AnimatePresence } from "framer-motion";
 import FloatingHearts from "@/components/FloatingHearts";
 import WelcomeSection from "@/components/WelcomeSection";
 import PhotoSection from "@/components/PhotoSection";
+import ComplimentsSection from "@/components/ComplimentsSection";
 import InteractionSection from "@/components/InteractionSection";
 import ClosingSection from "@/components/ClosingSection";
 
-type Section = "welcome" | "photo" | "interaction" | "closing";
+type Section = "welcome" | "photo" | "compliments" | "interaction" | "closing";
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState<Section>("welcome");
@@ -25,6 +26,12 @@ const Index = () => {
         {currentSection === "photo" && (
           <PhotoSection
             key="photo"
+            onContinue={() => setCurrentSection("compliments")}
+          />
+        )}
+        {currentSection === "compliments" && (
+          <ComplimentsSection
+            key="compliments"
             onContinue={() => setCurrentSection("interaction")}
           />
         )}
