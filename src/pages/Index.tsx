@@ -1,12 +1,43 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import FloatingHearts from "@/components/FloatingHearts";
+import WelcomeSection from "@/components/WelcomeSection";
+import PhotoSection from "@/components/PhotoSection";
+import InteractionSection from "@/components/InteractionSection";
+import ClosingSection from "@/components/ClosingSection";
+
+type Section = "welcome" | "photo" | "interaction" | "closing";
 
 const Index = () => {
+  const [currentSection, setCurrentSection] = useState<Section>("welcome");
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
+      <FloatingHearts />
+
+      <AnimatePresence mode="wait">
+        {currentSection === "welcome" && (
+          <WelcomeSection
+            key="welcome"
+            onStart={() => setCurrentSection("photo")}
+          />
+        )}
+        {currentSection === "photo" && (
+          <PhotoSection
+            key="photo"
+            onContinue={() => setCurrentSection("interaction")}
+          />
+        )}
+        {currentSection === "interaction" && (
+          <InteractionSection
+            key="interaction"
+            onComplete={() => setCurrentSection("closing")}
+          />
+        )}
+        {currentSection === "closing" && (
+          <ClosingSection key="closing" />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
