@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import childhoodPhoto from "@/assets/childhood-photo.jpg";
+import childhoodPhoto from "../assets/childhood-photo.jpeg";
 import Sparkles from "./Sparkles";
 
 interface PhotoSectionProps {

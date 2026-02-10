@@ -6,11 +6,11 @@ interface ComplimentsSectionProps {
 }
 
 const compliments = [
-  { emoji: "🌟", text: "Your smile can light up anyone's day" },
-  { emoji: "🦋", text: "You have a beautiful soul" },
-  { emoji: "💪", text: "Your determination inspires everyone around you" },
-  { emoji: "🌸", text: "You make the world a better place just by being you" },
-  { emoji: "✨", text: "Never stop being the amazing person you are" },
+  { caption: "✨", text: "My heart already chose you, will you choose me too?" },
+  { caption: "🌸", text: "I'm not asking for forever... just asking if you'll be mine right now." },
+  { caption: "🌟", text: "Will you be the reason behind my smile every single day?" },
+  { caption: "💪", text: "I want to be the person who holds you up when the world gets heavy." },
+  { caption: "🦋", text: "All I want is your hand in mine, today, tomorrow, and forever." }
 ];
 
 const ComplimentsSection = ({ onContinue }: ComplimentsSectionProps) => {
@@ -28,7 +28,7 @@ const ComplimentsSection = ({ onContinue }: ComplimentsSectionProps) => {
         }
         return prev + 1;
       });
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
@@ -47,7 +47,7 @@ const ComplimentsSection = ({ onContinue }: ComplimentsSectionProps) => {
         transition={{ delay: 0.3, duration: 0.8 }}
         className="text-3xl md:text-4xl font-display text-gradient-romantic mb-12 text-center"
       >
-        A few things about you ✨
+        To the One Who Holds My Heart ✨
       </motion.h2>
 
       <div className="relative w-full max-w-sm h-48 flex items-center justify-center">
@@ -66,9 +66,9 @@ const ComplimentsSection = ({ onContinue }: ComplimentsSectionProps) => {
                 scale: [1, 1.3, 1],
                 rotate: [0, 10, -10, 0],
               }}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ duration: 3.5, repeat: Infinity }}
             >
-              {compliments[currentIndex].emoji}
+              {compliments[currentIndex].caption}
             </motion.span>
             <p className="text-xl md:text-2xl font-body text-foreground text-center leading-relaxed px-4">
               {compliments[currentIndex].text}

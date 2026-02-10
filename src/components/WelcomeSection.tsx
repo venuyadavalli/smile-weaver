@@ -62,7 +62,7 @@ const WelcomeSection = ({ onStart }: WelcomeSectionProps) => {
             if (showSubtext) setShowButton(true);
           }}
         >
-          This is a small website I built just to make you smile today.
+          I built this small space just to make you smile today
         </motion.p>
 
         {/* Glowing start button */}

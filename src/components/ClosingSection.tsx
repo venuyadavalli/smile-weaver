@@ -82,10 +82,11 @@ const ClosingSection = () => {
               animate="visible"
             >
               <p className="text-base md:text-xl font-body text-foreground leading-relaxed mb-2">
-                All the best for your job search.
+                Wishing you all the best in your job journey.
+                I truly believe you will achieve it.
               </p>
               <p className="text-base md:text-xl font-body text-foreground leading-relaxed mb-8">
-                You will definitely achieve it.
+                Keep smiling and keep going.
               </p>
             </motion.div>
 

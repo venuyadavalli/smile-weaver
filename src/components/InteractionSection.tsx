@@ -202,7 +202,42 @@ const InteractionSection = ({ onComplete }: InteractionSectionProps) => {
         )}
 
         {/* Question 2 */}
-        {currentQuestion === 1 && (
+        {currentQuestion === 1 && !showCelebration && !showRetryMessage && (
+          <motion.div
+            key="q3"
+            variants={questionVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-md"
+          >
+            <motion.p className="text-4xl mb-4">🌟</motion.p>
+            <h2 className="text-3xl md:text-4xl font-display text-gradient-romantic mb-8">
+              Do you know you are a special person to me?
+            </h2>
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleLikeYes}
+              className="px-10 py-4 rounded-full bg-gradient-celebration text-primary-foreground font-body font-semibold text-lg animate-pulse-glow shadow-romantic hover:shadow-glow transition-all duration-300"
+            >
+              Yes 💝
+            </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleSmilingNotYet}
+                className="px-8 py-3 rounded-full bg-secondary text-secondary-foreground font-body font-semibold shadow-romantic hover:shadow-glow transition-all duration-300"
+              >
+                Maybe 😊
+              </motion.button>
+          </motion.div>
+        )}
+
+        {/* Question 3 */}
+        {currentQuestion === 2 && !showCelebration && !showRetryMessage && (
           <motion.div
             key="q2"
             variants={questionVariants}
@@ -212,15 +247,15 @@ const InteractionSection = ({ onComplete }: InteractionSectionProps) => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-md"
           >
-            <motion.p className="text-4xl mb-4">💻</motion.p>
+            <motion.p className="text-4xl mb-4">🌹</motion.p>
             <h2 className="text-3xl md:text-4xl font-display text-gradient-romantic mb-8">
-              Do you like this website?
+              Will you be my Valentine?
             </h2>
             <div className="flex gap-4 justify-center items-center relative">
               <motion.button
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={handleLikeYes}
+                onClick={handleFinalYes}
                 className="px-8 py-3 rounded-full bg-gradient-celebration text-primary-foreground font-body font-semibold shadow-romantic hover:shadow-glow transition-all duration-300"
               >
                 Yes 💖
@@ -247,31 +282,6 @@ const InteractionSection = ({ onComplete }: InteractionSectionProps) => {
           </motion.div>
         )}
 
-        {/* Question 3 */}
-        {currentQuestion === 2 && !showCelebration && (
-          <motion.div
-            key="q3"
-            variants={questionVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-md"
-          >
-            <motion.p className="text-4xl mb-4">🌟</motion.p>
-            <h2 className="text-3xl md:text-4xl font-display text-gradient-romantic mb-8">
-              Can I continue making you smile like this?
-            </h2>
-            <motion.button
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleFinalYes}
-              className="px-10 py-4 rounded-full bg-gradient-celebration text-primary-foreground font-body font-semibold text-lg animate-pulse-glow shadow-romantic hover:shadow-glow transition-all duration-300"
-            >
-              Yes 💝
-            </motion.button>
-          </motion.div>
-        )}
 
         {/* Celebration */}
         {showCelebration && (
